@@ -26,7 +26,7 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
           <div className='h-full bg-li-fitbg w-full'>
             <div className='h-full w-full'>
               <Content
-                style={{ maxHeight: 'calc(900px - 140px)', overflowY: 'auto' }}
+                style={{ maxHeight: 'calc(900px - 140px)', overflowY: 'auto', height: '100%' }}
               >
                 <div className="text-center h-full" >
                   {children}

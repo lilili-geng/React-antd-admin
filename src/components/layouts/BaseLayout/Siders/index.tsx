@@ -32,8 +32,17 @@ export const Siders = () => {
   }, [active]);
 
   return (
-    <div className="li-slide no-drawer bg-li-bg border-r-1 border-li-border-color h-full">
-      <div className="w-[100%] h-[100%] flex flex-col justify-between items-center">
+    <div className="li-slide h-full no-drawer bg-li-bg border-r-1 border-li-border-color flex flex-col justify-between">
+      <div className="w-full  h-[90%] flex-1 flex-col justify-between items-center">
+
+        <div className="slide-icons">
+          <HomeOutlined
+            className={`${active === '/' ? 'active' : ''} flex justify-center`}
+            onClick={() => { navigate('/'); setActive('/'); _showRightStateFalse() }}
+          />
+        </div>
+
+
         {menuList.map((route, index) => (
           <div
             key={index}
@@ -46,33 +55,33 @@ export const Siders = () => {
                 </div>
               </div>
             }
-            <HomeOutlined
-              className={`mb-[10px] ${active === '/' ? 'active' : ''}`}
-              onClick={() => { navigate('/'); setActive('/'); _showRightStateFalse() }}
-            />
+
+
             <div className={`${route.path == active ? 'active' : ''}`} onClick={() => handleIconClick(route)}>
               {route.icon}
             </div>
+
           </div>
         ))}
-        <div className="theme-icons">
-          {
-            currentMode == 'light' ? <img
-              width="15"
-              height="15"
-              src={iconDart}
-              alt="dart"
-              onClick={() => { clickCurrentMode('dart') }}
-            /> : <img
-              width="15"
-              height="15"
-              src={iconLight}
-              alt="light"
-              onClick={() => { clickCurrentMode('light') }}
-            />
-          }
-        </div>
       </div>
-    </div >
+
+      <div className="theme-icons flex justify-center">
+        {
+          currentMode == 'light' ? <img
+            width="15"
+            height="15"
+            src={iconDart}
+            alt="dart"
+            onClick={() => { clickCurrentMode('dart') }}
+          /> : <img
+            width="15"
+            height="15"
+            src={iconLight}
+            alt="light"
+            onClick={() => { clickCurrentMode('light') }}
+          />
+        }
+      </div>
+    </div>
   )
 }

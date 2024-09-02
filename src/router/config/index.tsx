@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { BaseLayout } from '@/components/layouts/BaseLayout';
-import { FilePdfOutlined } from '@ant-design/icons';
+import { FilePdfOutlined, ForkOutlined } from '@ant-design/icons';
 import { IRouterConfig } from '@/types';
 
 
@@ -29,6 +29,33 @@ export const routersConfig: IRouterConfig[] = [{
       layout: null,
       element: lazy(() => import('@/views/basicData/role/list/index')),
       title: '角色管理',
+    },
+  ],
+},
+{
+  path: '/animation',
+  layout: BaseLayout,
+  element: lazy(() => import('@/views/animation/index')),
+  icon: <ForkOutlined />,
+  title: 'Animation',
+  children: [
+    {
+      path: '',
+      layout: null,
+      element: lazy(() => import('@/views/animation/animationTemplate/index')),
+      title: 'AnimationTemplate',
+    },
+    {
+      path: 'loading',
+      layout: null,
+      element: lazy(() => import('@/views/animation/animationLoading/index')),
+      title: 'Loading',
+    },
+    {
+      path: 'answerCard',
+      layout: null,
+      element: lazy(() => import('@/views/animation/answerCard/index')),
+      title: 'AnswerCard',
     },
   ],
 },
